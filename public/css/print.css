@@ -1,0 +1,9 @@
+
+/*Stuff for printing*/
+/*Need to fix: when I use this (and a div with class="print") only text in the body shows up, not td info (which is everything I want)
+commenting out so we'll print the whole thing for now)*/
+
+/*head {visibility:hidden;}*/
+/*body {visibility:hidden;}*/
+/*.print {visibility:visible;}*/
+

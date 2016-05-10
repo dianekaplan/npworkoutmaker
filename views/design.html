@@ -1,0 +1,230 @@
+<!--Once setup is done, you can view this at: -->
+<!--https://ide50-[yourname].cs50.io/design.php-->
+
+<h4>Database: </h4> The database tables are pretty straight-forward.  I started with just the first three tables, 
+then I wanted to be able to have a user share their workout, which meant saving that for later too: 
+<table class="table table-striped">
+
+    <thead>
+        <tr><th>table</th><th>notes/example</th><th>columns</th></tr>
+    </thead>
+    
+    <tbody>
+        <tr>
+            <td>exercises</td>
+            <td>tricep dips</td>
+            <td>(auto-incrementing) id, name, description, media link (for jpg or video to see 
+            what it looks like), and two bools that are important to how the exercises should be paired: self_pairing and travelling</td>
+        </tr>
+        
+        <tr>
+            <td>resources</td>
+            <td>for things that may be available/used, for ex: low wall or bench</td>
+            <td>(auto-incrementing) id and name</td>
+        </tr>
+        <tr>
+            <td>exercise_resource</td>
+            <td>to store resource requirements for exercises, for example tricep dips need the low wall/bench (to dip down from)</td>
+            <td>(auto-incrementing) id, exercise_id, and resource_id</td>
+        </tr>
+
+        <tr>
+            <td>workouts</td>
+            <td>To store a record of the workouts that were created</td>
+            <td>(auto-incrementing) id, type (partner vs solo, for quick classification), resources (so we can retry with same constraints), and workout_array 
+            (big array containing all the sets of all the pairs of exercises) </td>
+        </tr>
+    
+    </tbody>
+</table>
+
+
+<h4>Controllers/logic: </h4> 
+Here I started with what was needed to be able to make/show the workouts (with 
+make_workout.php doing A LOT), then I gradually separated out the different 
+steps to make it easier to read/follow. 
+
+<table class="table table-striped">
+
+
+
+    <thead>
+        <tr><th>helpers_workout.php</th><th>(see functions/notes below)</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>get_valid_exercises()</td>
+            <td>Function for step 1: determining what exercises are fair game 
+            based on the user's resources. Take the user's available resources,
+            and return valid exercises. Straight-forward, see code comments for 
+            play-by-play. </td>
+        </tr>
+        <tr>
+            <td>get_pairings()</td>
+            <td>Function for (multi-)step 2: making pairings out of those exercises. 
+            Take the valid exercises, desired # of exercises per set, and whether 
+            it's outdoor/partner workout (matters for how we make the pairs). 
+            Return the pairs of exercises that'll make up a set in a workout. 
+            I wondered about the format: a workout is comprised of 
+            sets of pairs of exercises, so the format that makes sense to me is 
+            arrays in arrays. This worked and I couldn't think of a downside, but
+            I'm not sure it's the 'right' way.  (Json is popular for storing 
+            'involved' data, but in this case the important point is the nesting, 
+            so my format makes the most sense I think). The most arduous hurdle 
+            in this function was learning the lesson of not trusting the += 
+            operator to combine results together and using array_merge() instead. </td>
+        </tr>
+        <tr>
+            <td>make_mixed_pairs()</td>
+            <td>Used by the function above- it only gets called in a particular 
+            case so I didn't want unnecessary clutter.  A classic November Project 
+            use of open space (when you have a partner) is where one person
+            travels to a point and back while the other does an exercise on the 
+            spot (cheering for partner to hurry back and save him). If we have a 
+            partner workout with open space, we'll try to make pairs like that. 
+            Otherwise, pair the exercises at random.  Straight-forward, see code 
+            comments for play-by-play. 
+            </td>
+        </tr>
+    </tbody>
+    
+    <thead>
+        <tr><th>helpers_general.php</th><th>(see functions/notes below)</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>render_partial()</td>
+            <td>I ended up making partial views for bits that get re-used multiple
+            times on a page, so I added this version of CS50's render that skips 
+            the header and footer. </td>
+        </tr>
+        
+        <tr>
+            <td>make_string_from_array()</td>
+            <td>More housekeeping: to prep for querying the database, take a 
+            results set (array of ids), and make it into a comma separated list. 
+            It feels clunky to have to make this function (and the one below), 
+            but I couldn't find/think of a simpler way to get the job done, so 
+            I moved the code off where it won't disturb readability. 
+            (used in make_workout.php)</td>
+        </tr>
+        <tr>
+            <td>make_string_from_associative_array()</td>
+            <td>Like the above function, but for associative arrays with id 
+            (used in make_workout.php)</td>
+        </tr>
+        
+        
+       <tr>
+           <td><b>make_workout.php</b>
+           </td>
+           <td>As the name suggests, this is the heart of the application.  
+            It uses the functions above, getting/saving the parameters the user 
+            passed, using them to make a workout, saving that workout to the 
+            database, and redirecting to retrieve_workout with the workout id. 
+            Originally I went to the view from here, but once I added the
+            ability to share a workout, I wanted one view to handle both cases 
+            (whether we've just made it vs whether we're coming in from elsewhere)
+            so I added that last step.
+            I use json_encode to get the arrays into the database (and later 
+            json_decode when they come out)- this keeps them intact and usable, 
+            but the potential downside is when I query the database directly for 
+            a look, I don't have a result I know what to do with. I haven't 
+            needed to do that, but I'm wondering if there's a better way this 
+            sort of thing is done. 
+           </td>
+       </tr>
+       
+       <tr>
+           <td><b>retrieve_workout.php</b>
+           </td>
+           <td>This one grabs the workout id from the URL, retrieves the workout 
+            details, constructs a 'try again' link from the resources used, and 
+            sends us along to the view (workout.php) to see it. Straight-forward, 
+            see code comments for play-by-play.
+           </td>
+       </tr>
+       
+        <tr>
+           <td>index.php, library.php, about.php, design.php
+           </td>
+           <td>These are simple ones, just to render the appropriate view 
+           </td>
+       </tr>
+       
+        </tbody>
+
+
+    
+</table>
+
+
+
+<h4>Views: </h4>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr><th>Page</th><th>notes</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>workout.php</td>
+            <td>This view is the most important. The workout layout is different for 
+            partner vs solo workouts so I started with two different views, but 
+            I decided to consolidate since they shared a lot of other stuff in 
+            common. So to have a different format, workout.php calls one of two 
+            partial views accordingly:
+            </td>
+        </tr>  
+        
+        <tr>
+            <td>_partner_set.php and _solo_set.php</td>
+            <td>partial views to show a set, one for partner workout format, one for solo </td>
+        </tr>  
+        <tr>
+            <td>_media_link.php</td>
+            <td>Most of the exercises have a media link to show (with different 
+            display for jpg vs other), so I broke that off into a partial too, 
+            to keep things clean and just have one place to update.  Note: this
+            also includes javascript for my snazzy modal window.  </td>
+        </tr>          
+        
+        
+        <tr>
+            <td>start_form.php, library_display.php, header.php, footer.php, documentation.html, design.html</td>
+            <td>The other pages involved- these are all pretty simple</td>
+        </tr>
+   
+
+    </tbody>
+
+
+</table>
+
+<h4>Javascript & css: </h4>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr><th>Page</th><th>notes</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>scripts.js</td>
+            <td>There's some javascript in here for the media link image modal</td>
+        </tr>  
+        
+        <tr>
+            <td>styles.css</td>
+            <td>I took this from PSET7, and added some styles (at the bottom) 
+            used by the modal</td>
+        </tr>  
+        <!--<tr>-->
+        <!--    <td>print.css</td>-->
+        <!--    <td>(if you get it working): this has some styles to help determine -->
+        <!--    printable-area on the page (for 'print this workout' feature)</td>-->
+        <!--</tr>  -->
+    </tbody>
+</table>
+
