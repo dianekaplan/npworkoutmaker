@@ -48,7 +48,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="Workout Maker" />
 	<meta property="og:description"   content="Go outside and work out" />
-	<meta property="og:image"         content="<? = $image ?>" />
+	<meta property="og:image"         content="<?= $image ?>" />
     </head>
 
     <body>
