@@ -43,18 +43,18 @@
      */
 
     // require extensions for Janrain's libary
-    if (!extension_loaded("bcmath") && !extension_loaded("gmp"))
-    {
-        trigger_error("CS50 Library requires bcmath or gmp extension module", E_USER_ERROR);
-    }
-    if (!extension_loaded("dom") && !extension_loaded("domxml"))
-    {
-        trigger_error("CS50 Library requires dom or domxml extension module", E_USER_ERROR);
-    }
-    if (!extension_loaded("openssl"))
-    {
-        trigger_error("CS50 Library requires openssl extension module", E_USER_ERROR);
-    }
+//    if (!extension_loaded("bcmath") && !extension_loaded("gmp"))
+//    {
+//        trigger_error("CS50 Library requires bcmath or gmp extension module", E_USER_ERROR);
+//    }
+//    if (!extension_loaded("dom") && !extension_loaded("domxml"))
+//    {
+//        trigger_error("CS50 Library requires dom or domxml extension module", E_USER_ERROR);
+//    }
+//    if (!extension_loaded("openssl"))
+//    {
+//        trigger_error("CS50 Library requires openssl extension module", E_USER_ERROR);
+//    }
 
     // ensure Janrain's library doesn't fail on Windows
     if (strtoupper(substr(PHP_OS, 0, 3)) === "WIN")

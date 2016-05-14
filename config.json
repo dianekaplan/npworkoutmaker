@@ -1,8 +1,8 @@
 {
-    "database": {
-        "host": "localhost",
-        "name": "project",
-        "username": "dianekaplan",
-        "password": "v1kCjsvLYytrBTGV"
-    }
+  "database": {
+    "host": "localhost",
+    "name": "nptest",
+    "username": "homestead",
+    "password": "secret"
+  }
 }

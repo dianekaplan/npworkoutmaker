@@ -1,0 +1,17 @@
+{
+//  Safe- reference for correct values for sandbox config
+  "database": {
+    "host": "localhost",
+    "name": "nptest",
+    "username": "homestead",
+    "password": "secret"
+  }
+
+  //  Safe- reference for correct values for production config
+  "database": {
+    "host": "izm96dhhnwr2ieg0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "name": "nptest",
+    "username": "knu81lzn5m79u3rx",
+    "password": "n51sinscjs8vex0d"
+  }
+}
