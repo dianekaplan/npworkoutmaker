@@ -62,7 +62,8 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
                 <table>
                     <tr>
                         <td><a href="/"><img alt="Workout Maker" src="<?= $image ?>" height="85"/></a></td>
-                        <td>This is a workout maker for people who like free fitness and want to add variety into their normal routine, or who are travelling 
+                        <td>This is a workout maker for people who like <a href = "http://november-project.com/" target="_blank">free fitness</a>
+                            and want to add variety into their normal routine, or who are travelling
                             and don't have equipment.  Find some space outside or inside, check off what you've got that you can use (including a partner!), and 
                             this tool will make you a fresh new workout. 
                         </td>

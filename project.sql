@@ -79,7 +79,7 @@ INSERT INTO `exercises` (`id`, `name`, `description`, `media_link`, `self_pairin
 (35, 'jumping jacks', 'Do not make me describe jumping jacks', NULL, 0, 0),
 (36, 'plank', 'Start in pushup position, or as a variation bring your forearms to the ground.  Hold your body steady in a straight line. ', '/img/exercises/planks.jpg', 0, 0),
 (37, 'side planks', 'Start with right foot and right hand (or elbow) touching the ground, lift your body up to make a triangle with the ground. Extend left arm up and hold body in a straight line.  Swtich to the other side half-way through', '/img/exercises/side_plank.jpg', 0, 0),
-(38, 'Up and down planks', 'Start in plank on your elbows, go up to hands, down to elbows', NULL, 0, 0),
+(38, 'Up and down planks', 'Start in plank on your elbows, go up to hands, down to elbows, repeat', NULL, 0, 0),
 (39, 'skipping', 'Like on the schoolyard: bring right knee to chest and hop on left foot, switch and repeat, travelling to your destination', 'img/exercises/skipping.jpg', 0, 1),
 (40, 'jump lunges', 'go into a lunge, jump up and switch legs into lunge on other side', 'img/exercises/jump_lunges.jpg', 0, 0);
 
