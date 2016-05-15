@@ -17,7 +17,7 @@ Repeat circuit for 6 minutes (or duration you like)
         <!-- Show exercise name (& description hover), media_link if it has one -->
         <?php foreach ($exercises as $pair): ?>
         <tr>
-            <td class="left"><a href="#" title= '<?= $pair[0][0]["description"] ?>'><?= $pair[0][0]["name"] ?></a></td>
+            <td class="left"><a title= '<?= $pair[0][0]["description"] ?>'><?= $pair[0][0]["name"] ?></a></td>
             
             <td class="left"> <?php if (isset($pair[0][0]["media_link"])): 
             render_partial("/partials/_media_link.php", ["media" => $pair[0][0]["media_link"]]);
@@ -26,7 +26,7 @@ Repeat circuit for 6 minutes (or duration you like)
             
             <!-- Mixed pairs will have concurrent exercise for partner #2, show same stuff -->          
             <?php if (isset($pair[1]) ): ?>
-            <td class="left"><a href="#" title= '<?= $pair[1][0]["description"] ?>' ><?= $pair[1][0]["name"] ?></a></td>
+            <td class="left"><a title= '<?= $pair[1][0]["description"] ?>' ><?= $pair[1][0]["name"] ?></a></td>
             <td class="left"> <?php if (isset($pair[1][0]["media_link"])): 
             render_partial("/partials/_media_link.php", ["media" => $pair[1][0]["media_link"]]);
              endif ?>

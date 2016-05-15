@@ -17,7 +17,7 @@
             <tr>
                 <td align="left">1 minute, or do 20</td>
                 </span>
-                <td align="left"><a href="#" title= '<?= $pair[0][0]["description"] ?>' ><?= $pair[0][0]["name"] ?></a></td>
+                <td align="left"><a title= '<?= $pair[0][0]["description"] ?>' ><?= $pair[0][0]["name"] ?></a></td>
                 <td align="left"> <?php if (isset($pair[0][0]["media_link"])): 
                 render_partial("/partials/_media_link.php", ["media" => $pair[0][0]["media_link"]]);
                  endif ?>
@@ -27,7 +27,7 @@
 
             <tr>
                 <td align="left">1 minute, or do 20</td>
-                <td align="left"><a href="#" title= '<?= $pair[1][0]["description"] ?>' ><?= $pair[1][0]["name"] ?></a></td>
+                <td align="left"><a title= '<?= $pair[1][0]["description"] ?>' ><?= $pair[1][0]["name"] ?></a></td>
                 <td align="left"> <?php if (isset($pair[1][0]["media_link"])): 
                     render_partial("/partials/_media_link.php", ["media" => $pair[1][0]["media_link"]]);
                      endif ?>
