@@ -1,8 +1,8 @@
 {
   "database": {
-    "host": "localhost",
+    "host": "izm96dhhnwr2ieg0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "name": "nptest",
-    "username": "homestead",
-    "password": "secret"
+    "username": "knu81lzn5m79u3rx",
+    "password": "n51sinscjs8vex0d"
   }
 }
