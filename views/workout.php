@@ -14,7 +14,7 @@
 
 
 
-<?php $url = "https://ide50-dianekaplan.cs50.io/retrieve_workout.php?workout_id=" . $id . "&t=true" ; ?>
+<?php $url = "http://www.npworkoutmaker.com/retrieve_workout.php?workout_id=" . $id . "&t=true" ; ?>
 
 
 <!-- Links to share and print -->

@@ -68,9 +68,13 @@
 // (This way we have one view to render both cases: creating workout, 
 // or following link with id in the url)
 
-    $destination_url = "https://ide50-dianekaplan.cs50.io/retrieve_workout.php?workout_id=" . $new_workout_id;
+    $destination_url = "retrieve_workout.php?workout_id=" . $new_workout_id;
     
     header("Location: $destination_url"); /* Redirect browser */
     exit();
+
+// print("\n Workout: \n");
+// print(json_encode($workout_array_json, JSON_PRETTY_PRINT));
+
         
 ?>

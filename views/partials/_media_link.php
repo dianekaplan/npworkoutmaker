@@ -3,7 +3,7 @@
 
 <!--If it's something other than a jpg, show ? icon and open it into a new window --> 
 <?php if (strpos ( $media, 'jpg') == false ) : ?>
-    <a href = '<?= $media ?>' target='_blank'><img alt='info' src ='/img/question_small.png'></a>
+    <a href = '<?= $media ?>' target='_blank'><img alt='info' src ='/img/question_small.jpg'></a>
     
 <!-- otherwise it's a jpg: show thumbnail with modal (uses javascript in scripts.js)-->
 <?php else : ?>

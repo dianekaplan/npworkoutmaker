@@ -38,7 +38,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
     
 <!-- url here is should match the one on workout.php, so we'll update if we're on that page -->
     <?php 
-        $content = "https://ide50-dianekaplan.cs50.io/";
+        $content = "http://www.npworkoutmaker.com/";
         $image = "/img/NPlogo2.jpg";
         
         if (isset($id))
