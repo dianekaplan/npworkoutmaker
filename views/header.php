@@ -39,7 +39,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <!-- url here is should match the one on workout.php, so we'll update if we're on that page -->
     <?php 
         $content = "https://ide50-dianekaplan.cs50.io/";
-        $image = "/img/NPlogo.jpg";
+        $image = "/img/NPlogo2.jpg";
         
         if (isset($id))
             $content = $content . "retrieve_workout.php?workout_id=" . $id;
@@ -61,7 +61,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
             <div id="top">
                 <table>
                     <tr>
-                        <td><a href="/"><img alt="Workout Maker" src="<?= $image ?>" height="50"/></a></td>
+                        <td><a href="/"><img alt="Workout Maker" src="<?= $image ?>" height="85"/></a></td>
                         <td>This is a workout maker for people who like free fitness and want to add variety into their normal routine, or who are travelling 
                             and don't have equipment.  Find some space outside or inside, check off what you've got that you can use (including a partner!), and 
                             this tool will make you a fresh new workout. 
