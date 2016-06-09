@@ -8,7 +8,7 @@
             <input class="form-control" name="have[]" value = "4" type="checkbox" checked/> Bench/ledge/low wall<br/>
             <input class="form-control" name="have[]" value = "3" type="checkbox" checked/> High wall/sturdy tree<br/>
             <input class="form-control" name="have[]" value = "5" type="checkbox" checked/> Flight of steps<br/>
-            <input class="form-control" name="have[]" value = "6" type="checkbox" checked/> pullup bar equivalent<br/>
+            <input class="form-control" name="have[]" value = "6" type="checkbox" checked/> pullup bar (or jungle gym equivalent)<br/>
         </div>  
     </fieldset>
 
