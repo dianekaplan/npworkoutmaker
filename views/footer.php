@@ -1,7 +1,9 @@
             </div>
 
             <div id="bottom">
-                Get out there and enjoy! Questions, ideas, suggestions? <a href="mailto:dianekaplan@gmail.com?Subject=Workout%20maker%20feedback">Contact me</a>
+                Get out there and enjoy! |
+                <a href="disclaimer.php">Disclaimer</a> |
+                Questions, ideas, suggestions? <a href="mailto:dianekaplan@gmail.com?Subject=Workout%20maker%20feedback">Contact me</a>
             </div>
 
         </div>

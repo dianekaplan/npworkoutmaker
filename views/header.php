@@ -42,7 +42,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 //        $image = "/img/NPlogo2.jpg";
     //    $image = "/img/hoisties.jpg";
     $image = "/img/bojan1.jpg";
-    
+
         
         if (isset($id))
             $content = $content . "retrieve_workout.php?workout_id=" . $id;
